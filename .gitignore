@@ -1,0 +1,11 @@
+"node_modules/\n.env\n*.log\n" 
+"node_modules/" 
+".env" 
+
+blockchain/node_modules/
+blockchain/.env
+
+backend/.env
+backend/node_modules
+
+frontend/node_modules
