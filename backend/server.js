@@ -280,15 +280,31 @@ app.get("/dashboard", authenticate, async (req, res) => {
   try {
     let query = "";
     let params = [];
+    let teacherClass = null; // Variable to hold the teacher's class
 
     if (role === "teacher") {
+      // Query for teacher's class and students
       query = `
-        SELECT teachers.class, students.indexNumber, students.fullName, students.class AS studentClass
+        SELECT teachers.class AS teacherClass, students.indexNumber, students.fullName, students.class AS studentClass
         FROM teachers
         LEFT JOIN students ON teachers.class = students.class
         WHERE teachers.userId = ?
       `;
       params = [userId];
+
+      // Fetch the data
+      const [results] = await db.query(query, params);
+
+      // Extract teacher's class from the first result
+      if (results.length > 0) {
+        teacherClass = results[0].teacherClass;
+      }
+
+      return res.json({
+        role,
+        teacherClass, // Send the teacher's class
+        students: results, // Send students separately
+      });
     } else if (role === "student") {
       query = `
         SELECT students.fullName, students.class, students.email, students.profilePicture, achievements.description AS achievementDescription, achievements.date AS achievementDate
@@ -310,8 +326,10 @@ app.get("/dashboard", authenticate, async (req, res) => {
     }
 
     const [results] = await db.query(query, params);
-    if (results.length === 0)
+
+    if (results.length === 0) {
       return res.status(404).json({ message: "No data found for this user" });
+    }
 
     res.json({ role, data: results });
   } catch (err) {
@@ -336,11 +354,11 @@ app.post('/teachers/add-student', authenticate, async (req, res) => {
     // Validate the teacher's class using userId
     const [classResults] = await db.execute(
       'SELECT * FROM teachers WHERE userId = ? AND class = ?',
-      [req.user.userId, teacherClass]  // Here we use req.user.userId
+      [req.user.userId, teacherClass] 
     );
 
     if (classResults.length === 0) {
-      console.log('Class not found for userId:', req.user.userId); // Debugging class not found
+      console.log('Class not found for userId:', req.user.userId); 
       return res.status(400).json({ message: 'Class not found or unauthorized access.' });
     }
 
