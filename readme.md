@@ -66,7 +66,7 @@ Once all the servers are up and running, navigate to the frontend URL and try th
 - `/login` - Login page (admin, teacher, society admin, and students can login, but can't change anything except their own features).
 - `/register` - Register page for students (Teachers, admins, and society admins are manually added for security reasons).
 - `/dashboard` - Dashboard for all users (Admins, Society Admins, Teachers) for generating certificates and handling other management tasks.
-- `/profile/:indexNumber` - View student profiles (e.g., `/profile/272923` to test an existing profile).
+- `/profile/:indexNumber` - View student profiles (e.g., `/profile/27293` to test an existing profile).
 
 ## 🌟 **Live Demo**
 
