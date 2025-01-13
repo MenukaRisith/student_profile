@@ -71,7 +71,8 @@ Once all the servers are up and running, navigate to the frontend URL and try th
 ## 🌟 **Live Demo**
 
 Experience the web application at:  
-👉 [https://student.eleventastic.com](https://student.eleventastic.com)
+👉 [http://student.eleventastic.com](http://student.eleventastic.com)
+(didnt added a sssl cause this is just a demo)
 
 ## 🛠 **Tech Stack**
 
