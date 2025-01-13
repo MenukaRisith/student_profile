@@ -58,7 +58,6 @@
 
 ### Part 3: **Usage Instructions**
 
-```markdown
 ## 🌐 **Usage Instructions**
 
 Once all the servers are up and running, navigate to the frontend URL and try these pages:
