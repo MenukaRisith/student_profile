@@ -1,9 +1,6 @@
-// utils/api.ts
-
 // Base URL of the backend
 export const BASE_URL = "http://localhost:3000";
 
-// Helper function to fetch data from the backend
 export const fetchFromApi = async (endpoint: string, options: RequestInit = {}) => {
     const url = `${BASE_URL}${endpoint}`;
     
