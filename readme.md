@@ -14,12 +14,45 @@
 1. Navigate to the frontend directory:
    ```bash
    cd frontend
-2.Install dependencies:
+2. Install dependencies:
    ```bash
    npm install
+
 3. Start the development server:
+   ```bash
+   npm run dev
 
+#### **Backend**:
 
+1. Update the database configurations in server.js (use database.sql to create the database with sample data).
+
+2. Navigate to the backend directory:
+   ```bash
+   cd backend
+
+3. Install dependencies:
+   ```bash
+   npm install
+
+4. Start the backend server:
+   ```bash
+   node server.js
+
+#### **Blockchain**:
+
+1. Update the database configurations in server.js.
+
+2. Navigate to the backend directory:
+   ```bash
+   cd blockchain
+
+3. Install dependencies:
+   ```bash
+   npm install
+
+4. Start the backend server:
+   ```bash
+   node server.js
 
 ---
 
